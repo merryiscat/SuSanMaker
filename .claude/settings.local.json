@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter:*)",
+      "Bash(\"/c/Users/minhy/flutter/bin/flutter\" doctor)",
+      "Bash(\"/c/Users/minhy/flutter/bin/flutter\" doctor --android-licenses)",
+      "Bash(printf:*)",
+      "Bash(\"/c/Users/minhy/flutter/bin/flutter\" doctor -v)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
