@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "123456789012",
+    "project_id": "ran-san-maker-test",
+    "storage_bucket": "ran-san-maker-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123456789012:android:abcdef123456789",
+        "android_client_info": {
+          "package_name": "com.ransanmaker.ran_san_maker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123456789012-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ransanmaker.ran_san_maker",
+            "certificate_hash": "abcdef123456789abcdef123456789abcdef12"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_test_key_for_android_development"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123456789012-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
