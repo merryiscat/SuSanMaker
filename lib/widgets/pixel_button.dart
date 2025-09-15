@@ -6,6 +6,7 @@ class PixelButton extends StatefulWidget {
   final VoidCallback? onPressed;
   final bool isLarge;
   final IconData? icon;
+  final bool isSelected;
 
   const PixelButton({
     super.key,
@@ -13,6 +14,7 @@ class PixelButton extends StatefulWidget {
     this.onPressed,
     this.isLarge = false,
     this.icon,
+    this.isSelected = false,
   });
 
   @override
@@ -33,7 +35,7 @@ class _PixelButtonState extends State<PixelButton> {
         duration: const Duration(milliseconds: 100),
         transform: Matrix4.identity()..scale(_isPressed ? 0.95 : 1.0),
         decoration: BoxDecoration(
-          color: AppColors.pixelBlack,
+          color: widget.isSelected ? AppColors.primary : AppColors.pixelBlack,
           border: Border.all(
             color: _isPressed ? AppColors.pixelGray : AppColors.pixelWhite,
             width: 3,

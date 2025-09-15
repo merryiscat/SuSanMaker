@@ -41,6 +41,9 @@ dependencies:
 
   # JSON 직렬화
   json_annotation: ^4.9.0
+  
+  # 네비게이션 (CLAUDE.md 빠른 시작 가이드)
+  go_router: ^14.6.2
 
 dev_dependencies:
   flutter_test:

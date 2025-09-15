@@ -6,7 +6,20 @@
       "Bash(\"/c/Users/minhy/flutter/bin/flutter\" doctor --android-licenses)",
       "Bash(printf:*)",
       "Bash(\"/c/Users/minhy/flutter/bin/flutter\" doctor -v)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Read(//c/Users/minhy//**)",
+      "Bash(where flutter)",
+      "Bash(echo $USERPROFILE)",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" --version)",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" run)",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" run -d windows)",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" devices)",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" run -d \"R3CY305NJQN\")",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" build apk)",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" emulators)",
+      "Bash(\"/c/Users\\minhy/dev/flutter/bin/flutter\" emulators --launch Pixel_9)",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" packages pub run build_runner build)",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" analyze)"
     ],
     "deny": [],
     "ask": []

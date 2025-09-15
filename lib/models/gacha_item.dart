@@ -34,6 +34,9 @@ enum ItemSlot {
 
   /// 액세서리 (안경, 목걸이 등)
   accessory,
+
+  /// 특수 효과 (오라, 이펙트 등)
+  effect,
 }
 
 /// 가챠 아이템을 나타내는 데이터 모델 클래스
@@ -173,6 +176,8 @@ class GachaItem {
         return '신발';
       case ItemSlot.accessory:
         return '액세서리';
+      case ItemSlot.effect:
+        return '이펙트';
     }
   }
 
@@ -207,6 +212,8 @@ class GachaItem {
         return ItemSlot.shoes;
       case 'accessory':
         return ItemSlot.accessory;
+      case 'effect':
+        return ItemSlot.effect;
       default:
         return ItemSlot.shirt;
     }

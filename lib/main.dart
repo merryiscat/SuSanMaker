@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'screens/home_screen.dart';
+import 'app_router.dart';
 import 'constants/app_colors.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class RanSanMakerApp extends StatelessWidget {
       ),
     );
 
-    return MaterialApp(
+    return MaterialApp.router(
       title: '랜덤 산책로 메이커',
       theme: ThemeData(
         colorScheme: const ColorScheme.dark(
@@ -38,7 +38,7 @@ class RanSanMakerApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'monospace', // 픽셀 게임 느낌의 모노스페이스 폰트
       ),
-      home: const HomeScreen(),
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false, // 디버그 배너 제거
     );
   }

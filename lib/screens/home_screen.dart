@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../constants/app_colors.dart';
 import '../widgets/pixel_button.dart';
 import '../widgets/pixel_character.dart';
@@ -73,16 +74,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         PixelButton(
                           text: '산책 시작하기',
                           isLarge: true,
-                          onPressed: () {
-                            // TODO: 산책 설정 화면으로 이동
-                          },
+                          onPressed: () => context.push('/walk-setup'),
                         ),
                         const SizedBox(height: 16),
                         PixelButton(
                           text: '기록 보기',
                           isLarge: true,
                           onPressed: () {
-                            // TODO: 기록 화면으로 이동
+                            // TODO: 기록 화면 구현 예정
                           },
                         ),
                       ],
@@ -103,16 +102,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       PixelButton(
                         text: '상점',
                         icon: Icons.store,
-                        onPressed: () {
-                          // TODO: 상점 화면으로 이동
-                        },
+                        onPressed: () => context.push('/gacha'),
                       ),
                       PixelButton(
                         text: '옷장',
                         icon: Icons.checkroom,
-                        onPressed: () {
-                          // TODO: 옷장 화면으로 이동
-                        },
+                        onPressed: () => context.push('/wardrobe'),
                       ),
                     ],
                   ),
