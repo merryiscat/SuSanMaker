@@ -1,6 +1,6 @@
 {
-    "name": "ran_san_maker",
-    "short_name": "ran_san_maker",
+    "name": "susanmaker",
+    "short_name": "susanmaker",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

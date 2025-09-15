@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:ran_san_maker/main.dart';
+import 'package:susanmaker/main.dart';
 
 void main() {
   testWidgets('RanSanMaker app basic structure test', (WidgetTester tester) async {

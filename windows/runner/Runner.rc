@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.ransanmaker" "\0"
-            VALUE "FileDescription", "ran_san_maker" "\0"
+            VALUE "CompanyName", "com.susanmaker" "\0"
+            VALUE "FileDescription", "susanmaker" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "ran_san_maker" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 com.ransanmaker. All rights reserved." "\0"
-            VALUE "OriginalFilename", "ran_san_maker.exe" "\0"
-            VALUE "ProductName", "ran_san_maker" "\0"
+            VALUE "InternalName", "susanmaker" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 com.susanmaker. All rights reserved." "\0"
+            VALUE "OriginalFilename", "susanmaker.exe" "\0"
+            VALUE "ProductName", "susanmaker" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
