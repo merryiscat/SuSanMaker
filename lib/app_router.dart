@@ -7,6 +7,7 @@ import 'screens/walk_result_screen.dart';
 import 'screens/gacha_screen.dart';
 import 'screens/wardrobe_screen.dart';
 import 'screens/auth_screen.dart';
+import 'screens/firebase_test_screen.dart';
 
 class AppRouter {
   static final router = GoRouter(
@@ -54,6 +55,12 @@ class AppRouter {
       GoRoute(
         path: '/wardrobe',
         builder: (context, state) => const WardrobeScreen(),
+      ),
+
+      // Firebase 테스트 화면 (개발용)
+      GoRoute(
+        path: '/firebase-test',
+        builder: (context, state) => const FirebaseTestScreen(),
       ),
     ],
     

@@ -19,7 +19,10 @@
       "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" emulators)",
       "Bash(\"/c/Users\\minhy/dev/flutter/bin/flutter\" emulators --launch Pixel_9)",
       "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" packages pub run build_runner build)",
-      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" analyze)"
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" analyze)",
+      "Bash(git stash:*)",
+      "Bash(dart pub global activate:*)",
+      "Bash(\"/c/Users/minhy/dev/flutter/bin/flutter\" run -d chrome)"
     ],
     "deny": [],
     "ask": []

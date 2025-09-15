@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../constants/app_colors.dart';
 import '../widgets/pixel_button.dart';
-import '../widgets/pixel_character.dart';
+import '../widgets/avatar_renderer.dart';
+import '../models/gacha_item.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -90,8 +91,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   
                   const Spacer(flex: 4),
                   
-                  // 픽셀 캐릭터
-                  const PixelCharacter(),
+                  // 아바타 캐릭터
+                  AvatarRenderer(
+                    equippedItems: const <ItemSlot, String?>{
+                      // 기본 상태: 아무 아이템도 장착하지 않음
+                      ItemSlot.headwear: null,
+                      ItemSlot.shirt: null,
+                      ItemSlot.pants: null,
+                      ItemSlot.shoes: null,
+                      ItemSlot.accessory: null,
+                      ItemSlot.effect: null,
+                    },
+                    size: 200.0,
+                    showPlaceholder: true, // 개발 중이므로 플레이스홀더 표시
+                  ),
                   
                   const Spacer(flex: 4),
                   
@@ -110,6 +123,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         onPressed: () => context.push('/wardrobe'),
                       ),
                     ],
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // 개발용 테스트 버튼 (임시)
+                  PixelButton(
+                    text: '🔧 Firebase 테스트',
+                    onPressed: () => context.push('/firebase-test'),
                   ),
                   
                   const Spacer(),

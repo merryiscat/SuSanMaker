@@ -19,11 +19,15 @@ class RoutePoint {
   /// 이 지점에서의 메모나 설명 (선택사항)
   final String? description;
 
+  /// 이 지점이 기록된 시간 (위치 추적용)
+  final DateTime? timestamp;
+
   const RoutePoint({
     required this.latitude,
     required this.longitude,
     this.altitude,
     this.description,
+    this.timestamp,
   });
 
   /// JSON에서 RoutePoint 객체 생성
@@ -75,12 +79,14 @@ class RoutePoint {
     double? longitude,
     double? altitude,
     String? description,
+    DateTime? timestamp,
   }) {
     return RoutePoint(
       latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
       altitude: altitude ?? this.altitude,
       description: description ?? this.description,
+      timestamp: timestamp ?? this.timestamp,
     );
   }
 
@@ -97,7 +103,8 @@ class RoutePoint {
         other.latitude == latitude &&
         other.longitude == longitude &&
         other.altitude == altitude &&
-        other.description == description;
+        other.description == description &&
+        other.timestamp == timestamp;
   }
 
   @override
@@ -105,7 +112,8 @@ class RoutePoint {
     return latitude.hashCode ^
         longitude.hashCode ^
         altitude.hashCode ^
-        description.hashCode;
+        description.hashCode ^
+        timestamp.hashCode;
   }
 }
 

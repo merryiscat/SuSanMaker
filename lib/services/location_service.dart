@@ -75,6 +75,7 @@ class LocationService {
       latitude: position.latitude,
       longitude: position.longitude,
       altitude: position.altitude,
+      timestamp: DateTime.now(),
     );
 
     // 첫 번째 위치인 경우
@@ -198,6 +199,21 @@ class LocationService {
 
     final recentTimeMinutes = 5.0; // 5분
     return recentDistance / (recentTimeMinutes / 60); // km/h
+  }
+
+  /// 현재 위치 가져오기 (일회성)
+  Future<Position?> getCurrentPosition() async {
+    try {
+      await _checkLocationPermission();
+
+      return await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+        timeLimit: const Duration(seconds: 15),
+      );
+    } catch (e) {
+      print('현재 위치 가져오기 실패: $e');
+      return null;
+    }
   }
 
   /// 위치 권한 확인

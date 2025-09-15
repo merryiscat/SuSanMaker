@@ -58,7 +58,12 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # Assets 디렉토리 생성 후 주석 해제
-  # assets:
-  #   - assets/images/
-  #   - assets/avatars/
+  # Assets 설정
+  assets:
+    - assets/characters/
+    - assets/items/headwear/
+    - assets/items/shirts/
+    - assets/items/pants/
+    - assets/items/shoes/
+    - assets/items/accessories/
+    - assets/items/effects/

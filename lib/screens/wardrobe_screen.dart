@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../constants/app_colors.dart';
 import '../widgets/pixel_button.dart';
+import '../widgets/avatar_renderer.dart';
 import '../services/inventory_service.dart';
 import '../models/gacha_item.dart';
 
@@ -147,25 +148,19 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.person,
-                  size: 80,
-                  color: AppColors.primary,
+                // 아바타 렌더러 사용
+                AvatarRenderer(
+                  equippedItems: _equippedItems,
+                  size: 120.0,
+                  showPlaceholder: true,
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  '아바타 미리보기',
+                  '현재 아바타',
                   style: TextStyle(
                     color: AppColors.onSurface,
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'TODO: 도트 캐릭터',
-                  style: TextStyle(
-                    color: AppColors.onSurface.withOpacity(0.6),
-                    fontSize: 10,
                   ),
                 ),
               ],

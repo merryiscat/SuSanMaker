@@ -45,5 +45,10 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<!-- GPS 위치 권한 설정 -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>산책 중 현재 위치를 추적하여 경로를 기록하기 위해 위치 권한이 필요합니다.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>산책 중 백그라운드에서도 위치를 추적하여 정확한 경로를 기록하기 위해 위치 권한이 필요합니다.</string>
 </dict>
 </plist>

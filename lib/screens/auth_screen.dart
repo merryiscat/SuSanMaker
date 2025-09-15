@@ -1,10 +1,98 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../constants/app_colors.dart';
 import '../widgets/pixel_button.dart';
+import '../services/auth_service.dart';
 
-class AuthScreen extends StatelessWidget {
+class AuthScreen extends ConsumerStatefulWidget {
   const AuthScreen({super.key});
+
+  @override
+  ConsumerState<AuthScreen> createState() => _AuthScreenState();
+}
+
+class _AuthScreenState extends ConsumerState<AuthScreen> {
+  bool _isLoading = false;
+
+  /// Google 로그인 처리
+  Future<void> _handleGoogleLogin() async {
+    setState(() => _isLoading = true);
+
+    try {
+      final authService = ref.read(authServiceProvider);
+      final userCredential = await authService.signInWithGoogle();
+
+      if (userCredential != null && mounted) {
+        // 로그인 성공 시 홈으로 이동
+        context.go('/');
+      } else if (mounted) {
+        // 로그인 실패 시 에러 메시지
+        _showErrorDialog('Google 로그인에 실패했습니다.');
+      }
+    } catch (e) {
+      if (mounted) {
+        _showErrorDialog('로그인 중 오류가 발생했습니다.');
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
+  }
+
+  /// 익명 로그인 처리
+  Future<void> _handleAnonymousLogin() async {
+    setState(() => _isLoading = true);
+
+    try {
+      final authService = ref.read(authServiceProvider);
+      final userCredential = await authService.signInAnonymously();
+
+      if (userCredential != null && mounted) {
+        // 로그인 성공 시 홈으로 이동
+        context.go('/');
+      } else if (mounted) {
+        // 로그인 실패 시 에러 메시지
+        _showErrorDialog('게스트 로그인에 실패했습니다.');
+      }
+    } catch (e) {
+      if (mounted) {
+        _showErrorDialog('로그인 중 오류가 발생했습니다.');
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
+  }
+
+  /// 에러 다이얼로그 표시
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: AppColors.surface,
+        title: Text(
+          '오류',
+          style: TextStyle(color: AppColors.onSurface),
+        ),
+        content: Text(
+          message,
+          style: TextStyle(color: AppColors.onSurface),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(
+              '확인',
+              style: TextStyle(color: AppColors.primary),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,30 +141,29 @@ class AuthScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: PixelButton(
-                      text: 'Google로 로그인',
+                      text: _isLoading ? '로그인 중...' : 'Google로 로그인',
                       isLarge: true,
-                      onPressed: () {
-                        // TODO: Google 로그인 구현
-                        // 임시로 홈으로 이동
-                        context.go('/');
-                      },
+                      onPressed: _isLoading ? null : _handleGoogleLogin,
                     ),
                   ),
-                  
+
                   const SizedBox(height: 16),
-                  
+
                   SizedBox(
                     width: double.infinity,
                     child: PixelButton(
-                      text: '게스트로 시작',
+                      text: _isLoading ? '로그인 중...' : '게스트로 시작',
                       isLarge: true,
-                      onPressed: () {
-                        // TODO: 익명 로그인 구현
-                        // 임시로 홈으로 이동
-                        context.go('/');
-                      },
+                      onPressed: _isLoading ? null : _handleAnonymousLogin,
                     ),
                   ),
+
+                  if (_isLoading) ...[
+                    const SizedBox(height: 24),
+                    const CircularProgressIndicator(
+                      color: AppColors.primary,
+                    ),
+                  ],
                 ],
               ),
             ],

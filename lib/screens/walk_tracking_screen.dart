@@ -45,12 +45,33 @@ class _WalkTrackingScreenState extends State<WalkTrackingScreen> {
 
   void _initializeLocation() async {
     try {
-      // 현재 위치 한 번 가져오기
       _locationStatus = '현재 위치 확인 중...';
       setState(() {});
+
+      // LocationService를 사용하여 현재 위치 가져오기
+      final position = await _locationService.getCurrentPosition();
+
+      if (position != null) {
+        final currentPoint = RoutePoint(
+          latitude: position.latitude,
+          longitude: position.longitude,
+          altitude: position.altitude,
+          timestamp: DateTime.now(),
+        );
+
+        setState(() {
+          _currentLocation = currentPoint;
+          _locationStatus = '현재 위치 확인됨';
+        });
+      } else {
+        setState(() {
+          _locationStatus = '위치를 가져올 수 없습니다';
+        });
+      }
     } catch (e) {
-      _locationStatus = '위치 권한을 확인해주세요';
-      setState(() {});
+      setState(() {
+        _locationStatus = '위치 권한을 확인해주세요: $e';
+      });
     }
   }
 
@@ -99,7 +120,7 @@ class _WalkTrackingScreenState extends State<WalkTrackingScreen> {
     }
   }
 
-  void _stopWalkTracking() async {
+  Future<void> _stopWalkTracking() async {
     await _locationService.stopTracking();
     _walkStatsSubscription?.cancel();
     _locationSubscription?.cancel();
